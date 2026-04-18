@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pratyaksh Pandey | Portfolio</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0a0a0a;
+    color: white;
+}
+
+section {
+    padding: 60px 10%;
+}
+
+h1, h2 {
+    color: gold;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 60px;
+}
+
+.hero p {
+    font-size: 22px;
+    opacity: 0.8;
+}
+
+.card {
+    background: #111;
+    padding: 20px;
+    margin: 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px gold;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.timeline {
+    border-left: 2px solid gold;
+    padding-left: 20px;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+}
+
+.skills span {
+    display: inline-block;
+    background: gold;
+    color: black;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+.footer {
+    text-align: center;
+    padding: 40px;
+}
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+    <h1>Pratyaksh Pandey</h1>
+    <p>Future Finance Professional | Accounting | AI-Driven Finance</p>
+</section>
+
+<section>
+    <h2>About Me</h2>
+    <div class="grid">
+        <div class="card">🎓 UWA Master's in Professional Accounting</div>
+        <div class="card">📊 Finance & Accounting Enthusiast</div>
+        <div class="card">🤖 Building AI Finance Solutions</div>
+        <div class="card">⚽ Competitive & Driven Mindset</div>
+    </div>
+</section>
+
+<section>
+    <h2>Work Experience</h2>
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h3>Blackburn Accounting</h3>
+            <p>Payroll | BAS | Financial Reporting</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Coles</h3>
+            <p>Customer Operations & Teamwork</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Easy-Tech</h3>
+            <p>Sales & Customer Service</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>AIESEC</h3>
+            <p>Global Volunteering Support</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>XERO</span>
+        <span>MYOB</span>
+        <span>Financial Reporting</span>
+        <span>Payroll</span>
+        <span>Leadership</span>
+        <span>Communication</span>
+    </div>
+</section>
+
+<section>
+    <h2>Certifications</h2>
+    <div class="grid">
+        <div class="card">XERO Advisor</div>
+        <div class="card">MYOB</div>
+        <div class="card">FMVA</div>
+        <div class="card">CFP (Level 1)</div>
+    </div>
+</section>
+
+<section>
+    <h2>Upcoming Projects</h2>
+    <div class="grid">
+        <div class="card">🤖 AI Finance Chatbot</div>
+        <div class="card">📊 ESG-Focused Financial Models</div>
+    </div>
+</section>
+
+<section class="footer">
+    <h2>Contact</h2>
+    <p>Email: pandeypratyaksh1106@gmail.com</p>
+</section>
+
+</body>
+</html>
