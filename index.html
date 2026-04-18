@@ -3,203 +3,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Pratyaksh Pandey | Fintech Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&family=Space+Mono&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin:0;
-  font-family:'DM Sans',sans-serif;
-  background: radial-gradient(circle at 20% 20%, #111 0%, #050508 60%);
-  color:#E8E8F0;
-  overflow-x:hidden;
-  cursor:none;
+body{
+margin:0;
+background:#050508;
+color:#E8E8F0;
+font-family:'DM Sans';
+cursor:none;
+overflow-x:hidden;
 }
 
-/* Glow Background */
-body::before {
-  content:'';
-  position:fixed;
-  width:600px;height:600px;
-  background:radial-gradient(circle,gold,transparent);
-  top:10%;left:60%;
-  opacity:.1;
-  filter:blur(100px);
+/* CURSOR */
+.cursor{width:10px;height:10px;background:gold;position:fixed;border-radius:50%;pointer-events:none}
+.ring{width:40px;height:40px;border:1px solid gold;position:fixed;border-radius:50%;pointer-events:none;transition:.1s}
+
+/* TICKER */
+.ticker{
+position:fixed;
+top:0;
+width:100%;
+background:gold;
+color:black;
+font-family:'Space Mono';
+font-size:11px;
+overflow:hidden;
+}
+.track{
+display:flex;
+width:200%;
+animation:scroll 25s linear infinite;
+}
+.track span{padding:0 40px}
+
+@keyframes scroll{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
 }
 
-/* Cursor */
-.cursor {
-  width:10px;height:10px;
-  background:gold;
-  position:fixed;
-  border-radius:50%;
-  pointer-events:none;
-  z-index:9999;
+/* HERO */
+.hero{padding:150px 10%}
+.hero h1{font-size:100px;font-family:'Bebas Neue'}
+.hero span{color:gold}
+
+/* KPI DASHBOARD */
+.kpi{display:flex;gap:40px;margin-top:40px}
+.kpi div{text-align:center}
+.kpi h2{font-size:40px;color:gold;margin:0}
+
+/* SECTIONS */
+.section{padding:80px 10%}
+
+/* CARD */
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,215,0,0.2);
+padding:25px;
+margin:20px 0;
+border-radius:12px;
+transition:.3s;
 }
-.cursor-ring {
-  width:35px;height:35px;
-  border:1px solid gold;
-  position:fixed;
-  border-radius:50%;
-  pointer-events:none;
-  z-index:9998;
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 30px gold;
 }
 
-/* Ticker */
-.ticker {
-  position:fixed;
-  top:0;width:100%;
-  background:gold;
-  color:black;
-  font-family:'Space Mono';
-  font-size:11px;
-  overflow:hidden;
-}
-.ticker span {
-  display:inline-block;
-  padding-left:100%;
-  animation:scroll 18s linear infinite;
-}
-@keyframes scroll {
-  0%{transform:translateX(0)}
-  100%{transform:translateX(-100%)}
+/* TIMELINE */
+.timeline{border-left:2px solid gold;padding-left:20px}
+.item{margin-bottom:40px}
+
+/* BUTTON */
+.btn{
+background:gold;
+color:black;
+padding:12px 25px;
+text-decoration:none;
+display:inline-block;
+margin-top:30px;
 }
 
-/* Hero */
-.hero {padding:140px 10%;}
-.hero h1 {font-size:90px;font-family:'Bebas Neue';}
-.hero span {color:gold}
-
-/* Glass Cards */
-.card {
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,215,0,0.2);
-  padding:20px;
-  margin:10px;
-  border-radius:12px;
-  transition:.3s;
-}
-.card:hover {
-  transform:translateY(-8px);
-  box-shadow:0 0 30px gold;
-}
-
-/* Grid */
-.grid {display:flex;flex-wrap:wrap;}
-.section {padding:80px 10%;}
-
-/* Button */
-.btn {
-  background:gold;
-  color:black;
-  padding:12px 25px;
-  text-decoration:none;
-  display:inline-block;
-  margin-top:20px;
-  font-weight:bold;
-}
-.btn:hover {transform:scale(1.05);}
-
-/* Terminal */
-.terminal {
-  background:black;
-  color:#00ff88;
-  padding:20px;
-  margin-top:30px;
-  font-family:monospace;
-}
-
-/* Animation */
-.fade {
-  opacity:0;
-  transform:translateY(30px);
-  transition:.6s;
-}
-.fade.show {
-  opacity:1;
-  transform:translateY(0);
+/* TERMINAL */
+.terminal{
+background:black;
+color:#00ff88;
+padding:20px;
+margin-top:20px;
+font-family:monospace;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Cursor -->
+<!-- CURSOR -->
 <div class="cursor"></div>
-<div class="cursor-ring"></div>
+<div class="ring"></div>
 
-<!-- Ticker -->
+<!-- TICKER -->
 <div class="ticker">
-<span>
-XERO ✔ | MYOB ✔ | QUICKBOOKS 2026 | CFP ✔ | FMVA ✔ | AI FINANCE BUILDER | PAYROLL ✔ | BAS ✔
-</span>
+<div class="track">
+<span>XERO ✔</span><span>MYOB ✔</span><span>QUICKBOOKS 2026</span><span>CFP ✔</span><span>FMVA ✔</span><span>BAS ✔</span><span>TAX RETURNS ✔</span><span>PAYROLL ✔</span><span>AI FINANCE</span>
+<span>XERO ✔</span><span>MYOB ✔</span><span>QUICKBOOKS 2026</span><span>CFP ✔</span><span>FMVA ✔</span><span>BAS ✔</span><span>TAX RETURNS ✔</span><span>PAYROLL ✔</span><span>AI FINANCE</span>
+</div>
 </div>
 
 <!-- HERO -->
-<section class="hero fade">
+<section class="hero">
 <h1>PRATYAKSH <span>PANDEY</span></h1>
-<p>Finance • Accounting • AI</p>
+<p>Graduate Accountant | Tax | BAS | Payroll</p>
 
-<a href="#contact" class="btn">🚀 Hire Me</a>
+<div class="kpi">
+<div><h2 id="k1">0</h2><p>Clients</p></div>
+<div><h2 id="k2">0</h2><p>Reports</p></div>
+<div><h2 id="k3">0</h2><p>Tools</p></div>
+</div>
+
+<a href="#contact" class="btn">Hire Me</a>
 
 <div class="terminal">
-> Booting Financial Intelligence...<br>
-> Loading Experience...<br>
-> Status: AVAILABLE FOR OPPORTUNITIES
+> Initialising Accounting Engine...<br>
+> Loading Tax + BAS modules...<br>
+> Status: READY FOR EMPLOYMENT
 </div>
 </section>
 
-<!-- SKILLS -->
-<section class="section fade">
-<h2>SKILLS</h2>
-<div class="grid">
-<div class="card">XERO</div>
-<div class="card">MYOB</div>
-<div class="card">Excel</div>
-<div class="card">Financial Reporting</div>
-</div>
-</section>
+<!-- EXPERIENCE -->
+<section class="section">
+<h2>EXPERIENCE</h2>
+<div class="timeline">
 
-<!-- CERTIFICATIONS -->
-<section class="section fade">
-<h2>CERTIFICATIONS</h2>
-<div class="grid">
-<div class="card">XERO Advisor</div>
-<div class="card">MYOB</div>
-<div class="card">FMVA</div>
-<div class="card">CFP Level 1</div>
+<div class="item">
+<h3>Blackburn Accounting — Graduate Accountant</h3>
+<p>• BAS preparation, tax returns, financial statements  
+• Payroll processing & reconciliations  
+• Xero, MYOB, Excel</p>
+</div>
+
+<div class="item">
+<h3>Blackburn Accounting — Intern</h3>
+<p>• Payroll, documentation, financial records</p>
+</div>
+
+<div class="item">
+<h3>Coles — Team Member</h3>
+<p>• Customer operations, teamwork</p>
+</div>
+
 </div>
 </section>
 
 <!-- PROJECTS -->
-<section class="section fade">
+<section class="section">
 <h2>PROJECTS</h2>
 
 <div class="card">
-  🤖 AI Finance Chatbot  
-  <br><small>Building an AI-powered platform for financial guidance, planning & insights</small>
+🤖 AI Finance Chatbot  
+<p>AI-powered financial advisory system</p>
 </div>
 
 <div class="card">
-  💼 Financial Consultant  
-  <br><small>Providing financial insights, budgeting strategies, and advisory for individuals & small businesses</small>
-  <br><small>✔ Budgeting | ✔ Investment Basics | ✔ Financial Planning</small>
+💼 Financial Consultant  
+<p>Budgeting, planning & financial insights for clients</p>
 </div>
 
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="section fade">
+<section id="contact" class="section">
 <h2>CONTACT</h2>
 <p>pandeypratyaksh1106@gmail.com</p>
 </section>
 
+<!-- SOUND -->
+<audio id="sound" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+
 <script>
-// Cursor
+// cursor
 const c=document.querySelector('.cursor');
-const r=document.querySelector('.cursor-ring');
+const r=document.querySelector('.ring');
 
 document.addEventListener('mousemove',e=>{
 c.style.left=e.clientX+'px';
@@ -208,13 +193,28 @@ r.style.left=e.clientX+'px';
 r.style.top=e.clientY+'px';
 });
 
-// Fade animation
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){e.target.classList.add('show')}
+// hover sound
+document.querySelectorAll('.card,.btn').forEach(el=>{
+el.addEventListener('mouseenter',()=>{
+let s=document.getElementById('sound');
+s.currentTime=0;
+s.play();
 });
 });
-document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
+
+// KPI animation
+function animate(id,target){
+let el=document.getElementById(id);
+let count=0;
+let interval=setInterval(()=>{
+count+=Math.ceil(target/30);
+if(count>=target){count=target;clearInterval(interval)}
+el.innerText=count;
+},30);
+}
+animate("k1",25);
+animate("k2",60);
+animate("k3",3);
 </script>
 
 </body>
