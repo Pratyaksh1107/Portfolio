@@ -3,167 +3,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pratyaksh Pandey | Finance Portfolio</title>
+<title>Pratyaksh Pandey | Fintech Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&family=Space+Mono&display=swap" rel="stylesheet">
-<script src="https://s3.tradingview.com/tv.js"></script>
 
 <style>
 body {
-  margin: 0;
-  background: #050508;
-  color: #E8E8F0;
-  font-family: 'DM Sans', sans-serif;
+  margin:0;
+  font-family:'DM Sans',sans-serif;
+  background: radial-gradient(circle at 20% 20%, #111 0%, #050508 60%);
+  color:#E8E8F0;
+  overflow-x:hidden;
+  cursor:none;
 }
 
-#progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: gold;
-  width: 0%;
-  z-index: 9999;
+/* Glow Background */
+body::before {
+  content:'';
+  position:fixed;
+  width:600px;height:600px;
+  background:radial-gradient(circle,gold,transparent);
+  top:10%;left:60%;
+  opacity:.1;
+  filter:blur(100px);
 }
 
-.hero {
-  padding: 100px 10%;
+/* Cursor */
+.cursor {
+  width:10px;height:10px;
+  background:gold;
+  position:fixed;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9999;
+}
+.cursor-ring {
+  width:35px;height:35px;
+  border:1px solid gold;
+  position:fixed;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9998;
 }
 
-.hero h1 {
-  font-size: 80px;
-  font-family: 'Bebas Neue';
+/* Ticker */
+.ticker {
+  position:fixed;
+  top:0;width:100%;
+  background:gold;
+  color:black;
+  font-family:'Space Mono';
+  font-size:11px;
+  overflow:hidden;
+}
+.ticker span {
+  display:inline-block;
+  padding-left:100%;
+  animation:scroll 18s linear infinite;
+}
+@keyframes scroll {
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-100%)}
 }
 
-.hero span {
-  color: gold;
-}
+/* Hero */
+.hero {padding:140px 10%;}
+.hero h1 {font-size:90px;font-family:'Bebas Neue';}
+.hero span {color:gold}
 
-.section {
-  padding: 80px 10%;
-}
-
+/* Glass Cards */
 .card {
-  background: #111;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  transition: 0.3s;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,215,0,0.2);
+  padding:20px;
+  margin:10px;
+  border-radius:12px;
+  transition:.3s;
 }
-
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px gold;
+  transform:translateY(-8px);
+  box-shadow:0 0 30px gold;
 }
 
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-}
+/* Grid */
+.grid {display:flex;flex-wrap:wrap;}
+.section {padding:80px 10%;}
 
-.terminal {
-  background: black;
-  color: #00ff88;
-  padding: 20px;
-  font-family: monospace;
-  margin-top: 20px;
-}
-
+/* Button */
 .btn {
-  background: gold;
-  color: black;
-  padding: 12px 20px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 20px;
+  background:gold;
+  color:black;
+  padding:12px 25px;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:20px;
+  font-weight:bold;
+}
+.btn:hover {transform:scale(1.05);}
+
+/* Terminal */
+.terminal {
+  background:black;
+  color:#00ff88;
+  padding:20px;
+  margin-top:30px;
+  font-family:monospace;
 }
 
-#chart {
-  margin-top: 40px;
+/* Animation */
+.fade {
+  opacity:0;
+  transform:translateY(30px);
+  transition:.6s;
 }
-
-.kpi {
-  background: #111;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-.contact {
-  text-align: center;
+.fade.show {
+  opacity:1;
+  transform:translateY(0);
 }
 </style>
 </head>
 
 <body>
 
-<div id="progress"></div>
+<!-- Cursor -->
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
 
-<section class="hero">
-  <h1>PRATYAKSH <span>PANDEY</span></h1>
-  <p>Finance | Accounting | AI</p>
+<!-- Ticker -->
+<div class="ticker">
+<span>
+XERO ✔ | MYOB ✔ | QUICKBOOKS 2026 | CFP ✔ | FMVA ✔ | AI FINANCE BUILDER | PAYROLL ✔ | BAS ✔
+</span>
+</div>
 
-  <a href="#contact" class="btn">🚀 Hire Me</a>
+<!-- HERO -->
+<section class="hero fade">
+<h1>PRATYAKSH <span>PANDEY</span></h1>
+<p>Finance • Accounting • AI</p>
 
-  <div class="terminal">
-    > Initializing Finance AI... <br>
-    > Loading Portfolio... <br>
-    > Status: READY FOR HIRE
-  </div>
+<a href="#contact" class="btn">🚀 Hire Me</a>
 
-  <div id="chart"></div>
+<div class="terminal">
+> Booting Financial Intelligence...<br>
+> Loading Experience...<br>
+> Status: AVAILABLE FOR OPPORTUNITIES
+</div>
 </section>
 
-<section class="section">
-  <h2>WHY HIRE ME</h2>
-  <div class="grid">
-    <div class="card">📊 Payroll, BAS, Tax Experience</div>
-    <div class="card">🤖 AI + Finance Mindset</div>
-    <div class="card">⚡ Fast Learner</div>
-    <div class="card">🌍 Global Exposure</div>
-  </div>
+<!-- SKILLS -->
+<section class="section fade">
+<h2>SKILLS</h2>
+<div class="grid">
+<div class="card">XERO</div>
+<div class="card">MYOB</div>
+<div class="card">Excel</div>
+<div class="card">Financial Reporting</div>
+</div>
 </section>
 
-<section class="section">
-  <h2>IMPACT</h2>
-  <div class="kpi">
-    ✔ Payroll Accuracy: 100% <br>
-    ✔ Reports Delivered: 50+ <br>
-    ✔ Tools: Xero, MYOB, Excel
-  </div>
+<!-- CERTIFICATIONS -->
+<section class="section fade">
+<h2>CERTIFICATIONS</h2>
+<div class="grid">
+<div class="card">XERO Advisor</div>
+<div class="card">MYOB</div>
+<div class="card">FMVA</div>
+<div class="card">CFP Level 1</div>
+</div>
 </section>
 
-<section class="section">
-  <h2>EXPERIENCE</h2>
-  <div class="card">Blackburn Accounting – Payroll, BAS, Reports</div>
-  <div class="card">Coles – Customer & Operations</div>
-  <div class="card">AIESEC – Global Programs</div>
+<!-- PROJECTS -->
+<section class="section fade">
+<h2>PROJECTS</h2>
+
+<div class="card">
+  🤖 AI Finance Chatbot  
+  <br><small>Building an AI-powered platform for financial guidance, planning & insights</small>
+</div>
+
+<div class="card">
+  💼 Financial Consultant  
+  <br><small>Providing financial insights, budgeting strategies, and advisory for individuals & small businesses</small>
+  <br><small>✔ Budgeting | ✔ Investment Basics | ✔ Financial Planning</small>
+</div>
+
 </section>
 
-<section class="section">
-  <h2>PROJECTS</h2>
-  <div class="card">🤖 AI Finance Chatbot (In Progress)</div>
-  <div class="card">🌱 ESG Finance Model (Coming Soon)</div>
-</section>
-
-<section class="section contact" id="contact">
-  <h2>LET'S CONNECT</h2>
-  <p>pandeypratyaksh1106@gmail.com</p>
+<!-- CONTACT -->
+<section id="contact" class="section fade">
+<h2>CONTACT</h2>
+<p>pandeypratyaksh1106@gmail.com</p>
 </section>
 
 <script>
-window.onscroll = () => {
-  let winScroll = document.documentElement.scrollTop;
-  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  document.getElementById("progress").style.width = (winScroll / height) * 100 + "%";
-};
+// Cursor
+const c=document.querySelector('.cursor');
+const r=document.querySelector('.cursor-ring');
 
-new TradingView.widget({
-  "container_id": "chart",
-  "width": "100%",
-  "height": 400,
-  "symbol": "NASDAQ:AAPL",
-  "theme": "dark"
+document.addEventListener('mousemove',e=>{
+c.style.left=e.clientX+'px';
+c.style.top=e.clientY+'px';
+r.style.left=e.clientX+'px';
+r.style.top=e.clientY+'px';
 });
+
+// Fade animation
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{
+if(e.isIntersecting){e.target.classList.add('show')}
+});
+});
+document.querySelectorAll('.fade').forEach(el=>observer.observe(el));
 </script>
 
 </body>
