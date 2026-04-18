@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Pratyaksh Pandey | Fintech Portfolio</title>
+<title>Pratyaksh Pandey | Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&family=Space+Mono&display=swap" rel="stylesheet">
 
@@ -18,15 +17,24 @@ cursor:none;
 overflow-x:hidden;
 }
 
+/* GRAPH BACKGROUND */
+.bg-graph{
+position:fixed;
+width:100%;
+height:100%;
+opacity:0.05;
+background:linear-gradient(to right, transparent 90%, gold 100%);
+z-index:-1;
+}
+
 /* CURSOR */
-.cursor{width:10px;height:10px;background:gold;position:fixed;border-radius:50%;pointer-events:none}
-.ring{width:40px;height:40px;border:1px solid gold;position:fixed;border-radius:50%;pointer-events:none;transition:.1s}
+.cursor{width:10px;height:10px;background:gold;position:fixed;border-radius:50%}
+.ring{width:40px;height:40px;border:1px solid gold;position:fixed;border-radius:50%}
 
 /* TICKER */
 .ticker{
 position:fixed;
-top:0;
-width:100%;
+top:0;width:100%;
 background:gold;
 color:black;
 font-family:'Space Mono';
@@ -39,23 +47,24 @@ width:200%;
 animation:scroll 25s linear infinite;
 }
 .track span{padding:0 40px}
-
-@keyframes scroll{
-0%{transform:translateX(0)}
-100%{transform:translateX(-50%)}
-}
+@keyframes scroll{100%{transform:translateX(-50%)}}
 
 /* HERO */
 .hero{padding:150px 10%}
 .hero h1{font-size:100px;font-family:'Bebas Neue'}
 .hero span{color:gold}
 
-/* KPI DASHBOARD */
-.kpi{display:flex;gap:40px;margin-top:40px}
-.kpi div{text-align:center}
-.kpi h2{font-size:40px;color:gold;margin:0}
+/* BUTTON */
+.btn{
+background:gold;
+color:black;
+padding:12px 25px;
+text-decoration:none;
+margin-right:10px;
+cursor:pointer;
+}
 
-/* SECTIONS */
+/* SECTION */
 .section{padding:80px 10%}
 
 /* CARD */
@@ -67,37 +76,28 @@ margin:20px 0;
 border-radius:12px;
 transition:.3s;
 }
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 30px gold;
-}
+.card:hover{box-shadow:0 0 30px gold;transform:translateY(-6px)}
 
-/* TIMELINE */
-.timeline{border-left:2px solid gold;padding-left:20px}
-.item{margin-bottom:40px}
-
-/* BUTTON */
-.btn{
-background:gold;
-color:black;
-padding:12px 25px;
-text-decoration:none;
-display:inline-block;
-margin-top:30px;
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:50%;left:50%;
+transform:translate(-50%,-50%);
+background:#111;
+padding:30px;
+border:1px solid gold;
+z-index:9999;
+width:60%;
 }
+.close{color:gold;cursor:pointer;float:right}
 
-/* TERMINAL */
-.terminal{
-background:black;
-color:#00ff88;
-padding:20px;
-margin-top:20px;
-font-family:monospace;
-}
 </style>
 </head>
 
 <body>
+
+<div class="bg-graph"></div>
 
 <!-- CURSOR -->
 <div class="cursor"></div>
@@ -106,8 +106,8 @@ font-family:monospace;
 <!-- TICKER -->
 <div class="ticker">
 <div class="track">
-<span>XERO ✔</span><span>MYOB ✔</span><span>QUICKBOOKS 2026</span><span>CFP ✔</span><span>FMVA ✔</span><span>BAS ✔</span><span>TAX RETURNS ✔</span><span>PAYROLL ✔</span><span>AI FINANCE</span>
-<span>XERO ✔</span><span>MYOB ✔</span><span>QUICKBOOKS 2026</span><span>CFP ✔</span><span>FMVA ✔</span><span>BAS ✔</span><span>TAX RETURNS ✔</span><span>PAYROLL ✔</span><span>AI FINANCE</span>
+<span>XERO ✔</span><span>MYOB ✔</span><span>QUICKBOOKS 2026</span><span>CFP ✔</span><span>FMVA ✔</span><span>BAS ✔</span><span>TAX ✔</span>
+<span>XERO ✔</span><span>MYOB ✔</span><span>QUICKBOOKS 2026</span><span>CFP ✔</span><span>FMVA ✔</span><span>BAS ✔</span><span>TAX ✔</span>
 </div>
 </div>
 
@@ -116,44 +116,8 @@ font-family:monospace;
 <h1>PRATYAKSH <span>PANDEY</span></h1>
 <p>Graduate Accountant | Tax | BAS | Payroll</p>
 
-<div class="kpi">
-<div><h2 id="k1">0</h2><p>Clients</p></div>
-<div><h2 id="k2">0</h2><p>Reports</p></div>
-<div><h2 id="k3">0</h2><p>Tools</p></div>
-</div>
-
-<a href="#contact" class="btn">Hire Me</a>
-
-<div class="terminal">
-> Initialising Accounting Engine...<br>
-> Loading Tax + BAS modules...<br>
-> Status: READY FOR EMPLOYMENT
-</div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="section">
-<h2>EXPERIENCE</h2>
-<div class="timeline">
-
-<div class="item">
-<h3>Blackburn Accounting — Graduate Accountant</h3>
-<p>• BAS preparation, tax returns, financial statements  
-• Payroll processing & reconciliations  
-• Xero, MYOB, Excel</p>
-</div>
-
-<div class="item">
-<h3>Blackburn Accounting — Intern</h3>
-<p>• Payroll, documentation, financial records</p>
-</div>
-
-<div class="item">
-<h3>Coles — Team Member</h3>
-<p>• Customer operations, teamwork</p>
-</div>
-
-</div>
+<button class="btn" onclick="openSummary()">Hire Me</button>
+<button class="btn" onclick="openWork()">View Work</button>
 </section>
 
 <!-- PROJECTS -->
@@ -162,27 +126,59 @@ font-family:monospace;
 
 <div class="card">
 🤖 AI Finance Chatbot  
-<p>AI-powered financial advisory system</p>
+<p>AI-powered financial planning assistant</p>
 </div>
 
 <div class="card">
-💼 Financial Consultant  
-<p>Budgeting, planning & financial insights for clients</p>
+💼 Aspiring Financial Consultant  
+<p>Driven to provide advisory, budgeting and investment insights to clients</p>
 </div>
 
 </section>
 
-<!-- CONTACT -->
-<section id="contact" class="section">
-<h2>CONTACT</h2>
-<p>pandeypratyaksh1106@gmail.com</p>
+<!-- EXPERIENCE CARDS -->
+<section class="section">
+<h2>WORK EXPERIENCE</h2>
+
+<div class="card">
+<h3>Graduate Accountant — Blackburn</h3>
+<p>BAS, tax returns, financial reports, payroll</p>
+</div>
+
+<div class="card">
+<h3>Accounting Intern — Blackburn</h3>
+<p>Payroll processing, reconciliation, records</p>
+</div>
+
+<div class="card">
+<h3>Coles</h3>
+<p>Customer operations & teamwork</p>
+</div>
+
 </section>
 
-<!-- SOUND -->
-<audio id="sound" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+<!-- MODALS -->
+<div id="summary" class="modal">
+<span class="close" onclick="closeModal()">X</span>
+<h2>Professional Summary</h2>
+<p>
+Accounting graduate at UWA with hands-on experience in BAS, tax returns, payroll, and financial reporting using Xero and MYOB. Strong analytical mindset with growing focus on AI in finance and client advisory. Proven ability to work in fast-paced environments and deliver accurate financial outcomes.
+</p>
+</div>
+
+<div id="work" class="modal">
+<span class="close" onclick="closeModal()">X</span>
+<h2>Detailed Work Experience</h2>
+<p>
+Blackburn Accounting: Prepared BAS, tax returns, payroll and financial reports.  
+Internship: Assisted in reconciliation, payroll, documentation.  
+Coles: Customer service and operations.  
+Easy-Tech: Sales & customer interaction.
+</p>
+</div>
 
 <script>
-// cursor
+// CURSOR
 const c=document.querySelector('.cursor');
 const r=document.querySelector('.ring');
 
@@ -193,28 +189,16 @@ r.style.left=e.clientX+'px';
 r.style.top=e.clientY+'px';
 });
 
-// hover sound
-document.querySelectorAll('.card,.btn').forEach(el=>{
-el.addEventListener('mouseenter',()=>{
-let s=document.getElementById('sound');
-s.currentTime=0;
-s.play();
-});
-});
-
-// KPI animation
-function animate(id,target){
-let el=document.getElementById(id);
-let count=0;
-let interval=setInterval(()=>{
-count+=Math.ceil(target/30);
-if(count>=target){count=target;clearInterval(interval)}
-el.innerText=count;
-},30);
+// MODALS
+function openSummary(){
+document.getElementById("summary").style.display="block";
 }
-animate("k1",25);
-animate("k2",60);
-animate("k3",3);
+function openWork(){
+document.getElementById("work").style.display="block";
+}
+function closeModal(){
+document.querySelectorAll('.modal').forEach(m=>m.style.display='none');
+}
 </script>
 
 </body>
