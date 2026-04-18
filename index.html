@@ -3,162 +3,168 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pratyaksh Pandey | Portfolio</title>
+<title>Pratyaksh Pandey | Finance Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&family=Space+Mono&display=swap" rel="stylesheet">
+<script src="https://s3.tradingview.com/tv.js"></script>
 
 <style>
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0a0a0a;
-    color: white;
+  margin: 0;
+  background: #050508;
+  color: #E8E8F0;
+  font-family: 'DM Sans', sans-serif;
 }
 
-section {
-    padding: 60px 10%;
-}
-
-h1, h2 {
-    color: gold;
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: gold;
+  width: 0%;
+  z-index: 9999;
 }
 
 .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  padding: 100px 10%;
 }
 
 .hero h1 {
-    font-size: 60px;
+  font-size: 80px;
+  font-family: 'Bebas Neue';
 }
 
-.hero p {
-    font-size: 22px;
-    opacity: 0.8;
+.hero span {
+  color: gold;
+}
+
+.section {
+  padding: 80px 10%;
 }
 
 .card {
-    background: #111;
-    padding: 20px;
-    margin: 15px;
-    border-radius: 12px;
-    transition: 0.3s;
+  background: #111;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px gold;
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px gold;
 }
 
 .grid {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.timeline {
-    border-left: 2px solid gold;
-    padding-left: 20px;
+.terminal {
+  background: black;
+  color: #00ff88;
+  padding: 20px;
+  font-family: monospace;
+  margin-top: 20px;
 }
 
-.timeline-item {
-    margin-bottom: 30px;
+.btn {
+  background: gold;
+  color: black;
+  padding: 12px 20px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
 }
 
-.skills span {
-    display: inline-block;
-    background: gold;
-    color: black;
-    padding: 8px 12px;
-    margin: 5px;
-    border-radius: 20px;
+#chart {
+  margin-top: 40px;
 }
 
-.footer {
-    text-align: center;
-    padding: 40px;
+.kpi {
+  background: #111;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.contact {
+  text-align: center;
 }
 </style>
-
 </head>
 
 <body>
 
+<div id="progress"></div>
+
 <section class="hero">
-    <h1>Pratyaksh Pandey</h1>
-    <p>Future Finance Professional | Accounting | AI-Driven Finance</p>
+  <h1>PRATYAKSH <span>PANDEY</span></h1>
+  <p>Finance | Accounting | AI</p>
+
+  <a href="#contact" class="btn">🚀 Hire Me</a>
+
+  <div class="terminal">
+    > Initializing Finance AI... <br>
+    > Loading Portfolio... <br>
+    > Status: READY FOR HIRE
+  </div>
+
+  <div id="chart"></div>
 </section>
 
-<section>
-    <h2>About Me</h2>
-    <div class="grid">
-        <div class="card">🎓 UWA Master's in Professional Accounting</div>
-        <div class="card">📊 Finance & Accounting Enthusiast</div>
-        <div class="card">🤖 Building AI Finance Solutions</div>
-        <div class="card">⚽ Competitive & Driven Mindset</div>
-    </div>
+<section class="section">
+  <h2>WHY HIRE ME</h2>
+  <div class="grid">
+    <div class="card">📊 Payroll, BAS, Tax Experience</div>
+    <div class="card">🤖 AI + Finance Mindset</div>
+    <div class="card">⚡ Fast Learner</div>
+    <div class="card">🌍 Global Exposure</div>
+  </div>
 </section>
 
-<section>
-    <h2>Work Experience</h2>
-    <div class="timeline">
-
-        <div class="timeline-item">
-            <h3>Blackburn Accounting</h3>
-            <p>Payroll | BAS | Financial Reporting</p>
-        </div>
-
-        <div class="timeline-item">
-            <h3>Coles</h3>
-            <p>Customer Operations & Teamwork</p>
-        </div>
-
-        <div class="timeline-item">
-            <h3>Easy-Tech</h3>
-            <p>Sales & Customer Service</p>
-        </div>
-
-        <div class="timeline-item">
-            <h3>AIESEC</h3>
-            <p>Global Volunteering Support</p>
-        </div>
-
-    </div>
+<section class="section">
+  <h2>IMPACT</h2>
+  <div class="kpi">
+    ✔ Payroll Accuracy: 100% <br>
+    ✔ Reports Delivered: 50+ <br>
+    ✔ Tools: Xero, MYOB, Excel
+  </div>
 </section>
 
-<section>
-    <h2>Skills</h2>
-    <div class="skills">
-        <span>XERO</span>
-        <span>MYOB</span>
-        <span>Financial Reporting</span>
-        <span>Payroll</span>
-        <span>Leadership</span>
-        <span>Communication</span>
-    </div>
+<section class="section">
+  <h2>EXPERIENCE</h2>
+  <div class="card">Blackburn Accounting – Payroll, BAS, Reports</div>
+  <div class="card">Coles – Customer & Operations</div>
+  <div class="card">AIESEC – Global Programs</div>
 </section>
 
-<section>
-    <h2>Certifications</h2>
-    <div class="grid">
-        <div class="card">XERO Advisor</div>
-        <div class="card">MYOB</div>
-        <div class="card">FMVA</div>
-        <div class="card">CFP (Level 1)</div>
-    </div>
+<section class="section">
+  <h2>PROJECTS</h2>
+  <div class="card">🤖 AI Finance Chatbot (In Progress)</div>
+  <div class="card">🌱 ESG Finance Model (Coming Soon)</div>
 </section>
 
-<section>
-    <h2>Upcoming Projects</h2>
-    <div class="grid">
-        <div class="card">🤖 AI Finance Chatbot</div>
-        <div class="card">📊 ESG-Focused Financial Models</div>
-    </div>
+<section class="section contact" id="contact">
+  <h2>LET'S CONNECT</h2>
+  <p>pandeypratyaksh1106@gmail.com</p>
 </section>
 
-<section class="footer">
-    <h2>Contact</h2>
-    <p>Email: pandeypratyaksh1106@gmail.com</p>
-</section>
+<script>
+window.onscroll = () => {
+  let winScroll = document.documentElement.scrollTop;
+  let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById("progress").style.width = (winScroll / height) * 100 + "%";
+};
+
+new TradingView.widget({
+  "container_id": "chart",
+  "width": "100%",
+  "height": 400,
+  "symbol": "NASDAQ:AAPL",
+  "theme": "dark"
+});
+</script>
 
 </body>
 </html>
