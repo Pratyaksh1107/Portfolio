@@ -3,203 +3,1161 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pratyaksh Pandey | Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans&family=Space+Mono&display=swap" rel="stylesheet">
-
+<title>Pratyaksh Pandey | Finance & Accounting Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body{
-margin:0;
-background:#050508;
-color:#E8E8F0;
-font-family:'DM Sans';
-cursor:none;
-overflow-x:hidden;
-}
+  :root {
+    --gold: #FFD700;
+    --gold2: #FFC200;
+    --dark: #0A0A0F;
+    --darker: #050508;
+    --surface: #12121A;
+    --surface2: #1A1A28;
+    --green: #00FF88;
+    --red: #FF4560;
+    --blue: #00D4FF;
+    --text: #E8E8F0;
+    --muted: #888899;
+  }
 
-/* GRAPH BACKGROUND */
-.bg-graph{
-position:fixed;
-width:100%;
-height:100%;
-opacity:0.05;
-background:linear-gradient(to right, transparent 90%, gold 100%);
-z-index:-1;
-}
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* CURSOR */
-.cursor{width:10px;height:10px;background:gold;position:fixed;border-radius:50%}
-.ring{width:40px;height:40px;border:1px solid gold;position:fixed;border-radius:50%}
+  html { scroll-behavior: smooth; }
 
-/* TICKER */
-.ticker{
-position:fixed;
-top:0;width:100%;
-background:gold;
-color:black;
-font-family:'Space Mono';
-font-size:11px;
-overflow:hidden;
-}
-.track{
-display:flex;
-width:200%;
-animation:scroll 25s linear infinite;
-}
-.track span{padding:0 40px}
-@keyframes scroll{100%{transform:translateX(-50%)}}
+  body {
+    background: var(--darker);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
 
-/* HERO */
-.hero{padding:150px 10%}
-.hero h1{font-size:100px;font-family:'Bebas Neue'}
-.hero span{color:gold}
+  /* Custom cursor */
+  .cursor {
+    position: fixed;
+    width: 12px; height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s;
+  }
+  .cursor-ring {
+    position: fixed;
+    width: 36px; height: 36px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease;
+    opacity: 0.5;
+  }
 
-/* BUTTON */
-.btn{
-background:gold;
-color:black;
-padding:12px 25px;
-text-decoration:none;
-margin-right:10px;
-cursor:pointer;
-}
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--darker); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
 
-/* SECTION */
-.section{padding:80px 10%}
+  /* ---- TICKER ---- */
+  .ticker {
+    background: var(--gold);
+    color: var(--dark);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+  }
+  .ticker-inner {
+    display: inline-block;
+    animation: ticker 30s linear infinite;
+  }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 
-/* CARD */
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,215,0,0.2);
-padding:25px;
-margin:20px 0;
-border-radius:12px;
-transition:.3s;
-}
-.card:hover{box-shadow:0 0 30px gold;transform:translateY(-6px)}
+  /* ---- NAV ---- */
+  nav {
+    position: fixed;
+    top: 30px; left: 0; right: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 48px;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,215,0,0.15);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--gold);
+  }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
 
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:50%;left:50%;
-transform:translate(-50%,-50%);
-background:#111;
-padding:30px;
-border:1px solid gold;
-z-index:9999;
-width:60%;
-}
-.close{color:gold;cursor:pointer;float:right}
+  /* ---- HERO ---- */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(255,215,0,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(0,212,255,0.05) 0%, transparent 60%);
+  }
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255,215,0,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,215,0,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .chart-bg {
+    position: absolute;
+    right: -40px;
+    bottom: 0;
+    width: 55%;
+    height: 70%;
+    opacity: 0.12;
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 680px; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(255,215,0,0.12);
+    border: 1px solid rgba(255,215,0,0.3);
+    color: var(--gold);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    padding: 6px 14px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.2s both;
+  }
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(64px, 9vw, 120px);
+    line-height: 0.9;
+    letter-spacing: 4px;
+    color: #fff;
+    animation: fadeUp 0.6s 0.35s both;
+  }
+  .hero-name span { color: var(--gold); }
+  .hero-title {
+    font-size: 16px;
+    color: var(--muted);
+    margin-top: 20px;
+    letter-spacing: 1.5px;
+    animation: fadeUp 0.6s 0.5s both;
+  }
+  .hero-desc {
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #b0b0c0;
+    max-width: 520px;
+    animation: fadeUp 0.6s 0.65s both;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 48px;
+    animation: fadeUp 0.6s 0.8s both;
+  }
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 10px; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+  .hero-cta {
+    margin-top: 48px;
+    display: flex; gap: 16px;
+    animation: fadeUp 0.6s 0.95s both;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--dark);
+    padding: 14px 32px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    cursor: none;
+    transition: all 0.2s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  }
+  .btn-gold:hover { background: #fff; transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    padding: 14px 32px;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(255,215,0,0.4);
+    cursor: none;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(255,215,0,0.05); }
 
+  /* Live badge */
+  .live-badge {
+    display: flex; align-items: center; gap: 8px;
+    position: absolute;
+    top: 140px; right: 48px;
+    background: var(--surface);
+    border: 1px solid rgba(0,255,136,0.2);
+    border-radius: 4px;
+    padding: 10px 18px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    z-index: 2;
+    animation: fadeIn 1s 1.2s both;
+  }
+  .live-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+
+  /* ---- SECTIONS ---- */
+  section { padding: 100px 48px; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 64px;
+  }
+  .section-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 60px);
+    letter-spacing: 3px;
+    color: #fff;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255,215,0,0.4), transparent);
+  }
+
+  /* ---- SKILLS ---- */
+  #skills { background: var(--surface); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .skill-card {
+    background: var(--surface2);
+    border: 1px solid rgba(255,215,0,0.1);
+    padding: 24px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    height: 2px;
+    background: var(--gold);
+    width: 0;
+    transition: width 0.4s;
+  }
+  .skill-card:hover { border-color: rgba(255,215,0,0.4); transform: translateY(-4px); }
+  .skill-card:hover::before { width: 100%; }
+  .skill-icon { font-size: 28px; margin-bottom: 12px; }
+  .skill-name { font-weight: 600; font-size: 14px; color: #fff; }
+  .skill-bar-wrap { margin-top: 12px; background: rgba(255,215,0,0.08); height: 3px; border-radius: 2px; }
+  .skill-bar { height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold2)); border-radius: 2px; transition: width 1.2s ease; }
+
+  /* ---- CERTIFICATIONS ---- */
+  #certs { background: var(--darker); }
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid rgba(255,215,0,0.1);
+    padding: 28px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .cert-card:hover { transform: translateY(-6px); border-color: rgba(255,215,0,0.4); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+  .cert-badge {
+    width: 42px; height: 42px;
+    background: rgba(255,215,0,0.1);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .cert-name { font-weight: 700; font-size: 14px; color: #fff; line-height: 1.4; margin-bottom: 8px; }
+  .cert-issuer { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+  .cert-year {
+    position: absolute;
+    top: 24px; right: 24px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    background: rgba(255,215,0,0.08);
+    padding: 4px 8px;
+    border-radius: 2px;
+  }
+  .cert-card.active { border-color: rgba(0,255,136,0.3); }
+  .cert-card.active .cert-badge { background: rgba(0,255,136,0.1); }
+
+  /* ---- EXPERIENCE ---- */
+  #experience { background: var(--surface); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(180deg, var(--gold) 0%, rgba(255,215,0,0.1) 100%);
+  }
+  .timeline-item {
+    padding-left: 64px;
+    position: relative;
+    margin-bottom: 60px;
+  }
+  .timeline-dot {
+    position: absolute;
+    left: 12px;
+    top: 6px;
+    width: 16px; height: 16px;
+    background: var(--gold);
+    border-radius: 50%;
+    border: 3px solid var(--surface);
+    box-shadow: 0 0 20px rgba(255,215,0,0.5);
+  }
+  .timeline-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .timeline-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+  .timeline-badge {
+    font-size: 10px;
+    background: rgba(0,212,255,0.1);
+    color: var(--blue);
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(0,212,255,0.2);
+    letter-spacing: 1px;
+  }
+  .timeline-company {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .timeline-role { font-size: 13px; color: var(--gold); font-weight: 600; margin-bottom: 16px; letter-spacing: 1px; }
+  .timeline-points { list-style: none; }
+  .timeline-points li {
+    font-size: 14px;
+    color: #a0a0b0;
+    padding: 5px 0 5px 20px;
+    position: relative;
+    line-height: 1.7;
+  }
+  .timeline-points li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 12px;
+  }
+  .timeline-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .tag {
+    font-size: 10px;
+    background: rgba(255,215,0,0.07);
+    color: var(--muted);
+    padding: 5px 12px;
+    border: 1px solid rgba(255,215,0,0.12);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ---- PROJECTS ---- */
+  #projects { background: var(--darker); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid rgba(255,215,0,0.1);
+    padding: 36px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+  .project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,215,0,0.05) 0%, transparent 60%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .project-card:hover::after { opacity: 1; }
+  .project-card:hover { transform: translateY(-8px); border-color: rgba(255,215,0,0.35); box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  .project-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    color: rgba(255,215,0,0.06);
+    position: absolute;
+    top: 8px; right: 20px;
+    line-height: 1;
+  }
+  .project-status {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+  .status-coming { background: rgba(255,215,0,0.1); color: var(--gold); border: 1px solid rgba(255,215,0,0.25); }
+  .status-progress { background: rgba(0,255,136,0.1); color: var(--green); border: 1px solid rgba(0,255,136,0.25); }
+  .project-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 14px;
+    line-height: 1.1;
+  }
+  .project-desc { font-size: 14px; color: #a0a0b0; line-height: 1.8; margin-bottom: 20px; }
+  .project-features { list-style: none; margin-bottom: 24px; }
+  .project-features li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 4px 0;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .project-features li::before { content: '◆'; color: var(--gold); font-size: 7px; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stack-tag {
+    font-size: 10px;
+    font-family: 'Space Mono', monospace;
+    color: var(--blue);
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.15);
+    padding: 4px 10px;
+  }
+  .project-glow {
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,215,0,0.07), transparent 70%);
+    pointer-events: none;
+  }
+
+  /* ---- CONTACT ---- */
+  #contact {
+    background: var(--surface);
+    text-align: center;
+  }
+  .contact-inner { max-width: 640px; margin: 0 auto; }
+  .contact-email {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(24px, 4vw, 44px);
+    color: var(--gold);
+    letter-spacing: 3px;
+    word-break: break-all;
+    margin: 32px 0;
+  }
+  .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 24px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 8px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    padding: 12px 24px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.2s;
+  }
+  .contact-link:hover { color: var(--gold); border-color: rgba(255,215,0,0.4); }
+
+  /* ---- FINANCE TICKER CHART ---- */
+  .mini-chart {
+    display: flex; align-items: flex-end; gap: 3px;
+    height: 40px;
+    margin-top: 12px;
+  }
+  .bar {
+    width: 6px;
+    background: var(--gold);
+    border-radius: 1px;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .bar:hover { opacity: 1; }
+
+  /* ---- FLOAT CARDS ---- */
+  .float-card {
+    background: var(--surface);
+    border: 1px solid rgba(255,215,0,0.15);
+    padding: 16px 20px;
+    position: absolute;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    z-index: 2;
+    animation: floatAnim 4s ease-in-out infinite;
+  }
+  .float-card:nth-child(2) { animation-delay: -2s; }
+  .float-card .fc-label { color: var(--muted); font-size: 9px; letter-spacing: 1px; margin-bottom: 4px; }
+  .float-card .fc-val { color: var(--gold); font-size: 18px; font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; }
+  .float-card .fc-change { font-size: 10px; margin-top: 4px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  @keyframes floatAnim {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .fc-right {
+    right: 48px; top: 200px;
+  }
+  .fc-right2 {
+    right: 200px; top: 310px;
+    animation-delay: -1s;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Education */
+  #education { background: var(--darker); }
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 700px) {
+    .edu-grid { grid-template-columns: 1fr; }
+    nav { padding: 12px 20px; }
+    #hero { padding: 120px 20px 80px; }
+    .hero-stats { flex-wrap: wrap; gap: 24px; }
+    section { padding: 70px 20px; }
+    .fc-right, .fc-right2 { display: none; }
+  }
+  .edu-card {
+    background: var(--surface);
+    border: 1px solid rgba(255,215,0,0.1);
+    padding: 32px;
+    transition: all 0.3s;
+  }
+  .edu-card:hover { border-color: rgba(255,215,0,0.4); transform: translateY(-4px); }
+  .edu-degree { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--gold); margin-bottom: 8px; }
+  .edu-school { font-weight: 600; font-size: 15px; color: #fff; margin-bottom: 6px; }
+  .edu-year { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 2px; }
+
+  /* Volunteer */
+  .vol-card {
+    background: var(--surface2);
+    border-left: 3px solid var(--gold);
+    padding: 28px;
+    margin-top: 40px;
+  }
+  .vol-title { font-weight: 700; font-size: 16px; color: #fff; margin-bottom: 6px; }
+  .vol-org { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--gold); letter-spacing: 2px; margin-bottom: 12px; }
+
+  footer {
+    background: var(--darker);
+    padding: 32px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,215,0,0.1);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+  footer span { color: var(--gold); }
+
+  /* Counters animation */
+  .counter { display: inline-block; }
+
+  /* Sparkline */
+  canvas { display: block; }
 </style>
 </head>
-
 <body>
 
-<div class="bg-graph"></div>
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-<!-- CURSOR -->
-<div class="cursor"></div>
-<div class="ring"></div>
-
-<!-- TICKER -->
+<!-- Ticker -->
 <div class="ticker">
-<div class="track">
-<span>XERO ✔</span><span>MYOB ✔</span><span>QUICKBOOKS 2026</span><span>CFP ✔</span><span>FMVA ✔</span><span>BAS ✔</span><span>TAX ✔</span>
-<span>XERO ✔</span><span>MYOB ✔</span><span>QUICKBOOKS 2026</span><span>CFP ✔</span><span>FMVA ✔</span><span>BAS ✔</span><span>TAX ✔</span>
-</div>
+  <span class="ticker-inner">
+    &nbsp;&nbsp;&nbsp;XERO ▲ CERTIFIED &nbsp;|&nbsp; MYOB ▲ PROFICIENT &nbsp;|&nbsp; QUICKBOOKS ▲ 2026 &nbsp;|&nbsp; CFP LEVEL 1 ✓ CLEARED &nbsp;|&nbsp; FMVA ✓ CERTIFIED &nbsp;|&nbsp; UWA MASTER'S IN PROGRESS &nbsp;|&nbsp; AI FINANCE CHATBOT ◆ UPCOMING &nbsp;|&nbsp; PAYROLL ACCOUNTING ▲ EXPERIENCED &nbsp;|&nbsp; BAS PREPARATION ✓ SKILLED &nbsp;|&nbsp; FINANCIAL MODELING ▲ TRAINED &nbsp;&nbsp;&nbsp;&nbsp;
+    XERO ▲ CERTIFIED &nbsp;|&nbsp; MYOB ▲ PROFICIENT &nbsp;|&nbsp; QUICKBOOKS ▲ 2026 &nbsp;|&nbsp; CFP LEVEL 1 ✓ CLEARED &nbsp;|&nbsp; FMVA ✓ CERTIFIED &nbsp;|&nbsp; UWA MASTER'S IN PROGRESS &nbsp;|&nbsp; AI FINANCE CHATBOT ◆ UPCOMING &nbsp;|&nbsp; PAYROLL ACCOUNTING ▲ EXPERIENCED &nbsp;|&nbsp; BAS PREPARATION ✓ SKILLED &nbsp;|&nbsp; FINANCIAL MODELING ▲ TRAINED &nbsp;&nbsp;
+  </span>
 </div>
 
-<!-- HERO -->
-<section class="hero">
-<h1>PRATYAKSH <span>PANDEY</span></h1>
-<p>Graduate Accountant | Tax | BAS | Payroll</p>
+<!-- Nav -->
+<nav>
+  <div class="nav-logo">PP</div>
+  <div class="nav-links">
+    <a href="#skills">Skills</a>
+    <a href="#certs">Certs</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
 
-<button class="btn" onclick="openSummary()">Hire Me</button>
-<button class="btn" onclick="openWork()">View Work</button>
+<!-- Hero -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Floating finance cards -->
+  <div class="float-card fc-right">
+    <div class="fc-label">NET WORTH IMPACT</div>
+    <div class="fc-val">+97%</div>
+    <div class="fc-change up">▲ Client satisfaction</div>
+    <div class="mini-chart">
+      <div class="bar" style="height:20%"></div>
+      <div class="bar" style="height:35%"></div>
+      <div class="bar" style="height:28%"></div>
+      <div class="bar" style="height:50%"></div>
+      <div class="bar" style="height:45%"></div>
+      <div class="bar" style="height:65%"></div>
+      <div class="bar" style="height:70%"></div>
+      <div class="bar" style="height:90%"></div>
+      <div class="bar" style="height:100%"></div>
+    </div>
+  </div>
+  <div class="float-card fc-right2">
+    <div class="fc-label">CERTIFICATIONS</div>
+    <div class="fc-val">8 CERTS</div>
+    <div class="fc-change up">▲ Active & Ongoing</div>
+  </div>
+
+  <!-- Live badge -->
+  <div class="live-badge">
+    <div class="live-dot"></div>
+    OPEN TO OPPORTUNITIES
+  </div>
+
+  <!-- SVG chart background -->
+  <svg class="chart-bg" viewBox="0 0 600 300" preserveAspectRatio="none">
+    <polyline points="0,250 60,200 120,220 180,150 240,170 300,100 360,120 420,60 480,80 540,30 600,50" fill="none" stroke="rgba(255,215,0,1)" stroke-width="2"/>
+    <polyline points="0,250 60,200 120,220 180,150 240,170 300,100 360,120 420,60 480,80 540,30 600,50 600,300 0,300" fill="rgba(255,215,0,0.3)" stroke="none"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tag">◆ FINANCE & ACCOUNTING PORTFOLIO</div>
+    <div class="hero-name">PRATYAKSH<br><span>PANDEY</span></div>
+    <div class="hero-title">MASTERS OF PROFESSIONAL ACCOUNTING · UNIVERSITY OF WESTERN AUSTRALIA</div>
+    <p class="hero-desc">Hands-on accounting professional with experience in payroll, financial statements, BAS preparation, and tax returns. Building the future of finance with AI-powered tools. Perth, Australia 🇦🇺</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num counter" data-target="8">0</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num counter" data-target="3">0</div>
+        <div class="stat-label">Accounting Tools</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-gold">View Experience</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
 </section>
 
-<!-- PROJECTS -->
-<section class="section">
-<h2>PROJECTS</h2>
-
-<div class="card">
-🤖 AI Finance Chatbot  
-<p>AI-powered financial planning assistant</p>
-</div>
-
-<div class="card">
-💼 Aspiring Financial Consultant  
-<p>Driven to provide advisory, budgeting and investment insights to clients</p>
-</div>
-
+<!-- Skills -->
+<section id="skills">
+  <div class="section-header reveal">
+    <div class="section-num">01</div>
+    <h2 class="section-title">SKILLS & TOOLS</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-icon">🟢</div>
+      <div class="skill-name">XERO</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="92%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🔵</div>
+      <div class="skill-name">MYOB</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="85%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">📊</div>
+      <div class="skill-name">Excel / Financial Modeling</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="88%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">💼</div>
+      <div class="skill-name">QuickBooks</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="80%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">📋</div>
+      <div class="skill-name">Payroll Processing</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="90%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🧾</div>
+      <div class="skill-name">BAS Preparation</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="83%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">📈</div>
+      <div class="skill-name">Financial Statements</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="87%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🤝</div>
+      <div class="skill-name">Leadership & Communication</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="93%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🌍</div>
+      <div class="skill-name">Sustainable Business Dev</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="78%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">AI in Finance (Building)</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="70%"></div></div>
+    </div>
+  </div>
 </section>
 
-<!-- EXPERIENCE CARDS -->
-<section class="section">
-<h2>WORK EXPERIENCE</h2>
-
-<div class="card">
-<h3>Graduate Accountant — Blackburn</h3>
-<p>BAS, tax returns, financial reports, payroll</p>
-</div>
-
-<div class="card">
-<h3>Accounting Intern — Blackburn</h3>
-<p>Payroll processing, reconciliation, records</p>
-</div>
-
-<div class="card">
-<h3>Coles</h3>
-<p>Customer operations & teamwork</p>
-</div>
-
+<!-- Education -->
+<section id="education">
+  <div class="section-header reveal">
+    <div class="section-num">02</div>
+    <h2 class="section-title">EDUCATION</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-degree">MASTERS OF PROFESSIONAL ACCOUNTING</div>
+      <div class="edu-school">University of Western Australia</div>
+      <div class="edu-year">2025 — ONGOING · PERTH, AUSTRALIA</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">BACHELOR OF COMMERCE</div>
+      <div class="edu-school">Chhatrapati Shahu Ji Maharaj Kanpur University</div>
+      <div class="edu-year">2021 — 2024 · INDIA</div>
+    </div>
+  </div>
+  <div class="vol-card reveal">
+    <div class="vol-title">Volunteer — Aashman Foundation</div>
+    <div class="vol-org">◆ INDIA · DEC 2021 – FEB 2022</div>
+    <ul class="timeline-points">
+      <li>Led awareness initiatives on cottage industries and sustainable living for widows and families</li>
+      <li>Collaborated with local communities to provide resources and education</li>
+      <li>Encouraged healthy lifestyles and economic self-reliance</li>
+    </ul>
+  </div>
 </section>
 
-<!-- MODALS -->
-<div id="summary" class="modal">
-<span class="close" onclick="closeModal()">X</span>
-<h2>Professional Summary</h2>
-<p>
-Accounting graduate at UWA with hands-on experience in BAS, tax returns, payroll, and financial reporting using Xero and MYOB. Strong analytical mindset with growing focus on AI in finance and client advisory. Proven ability to work in fast-paced environments and deliver accurate financial outcomes.
-</p>
-</div>
+<!-- Certifications -->
+<section id="certs">
+  <div class="section-header reveal">
+    <div class="section-num">03</div>
+    <h2 class="section-title">CERTIFICATIONS</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cert-year">2025</div>
+      <div class="cert-badge">🟢</div>
+      <div class="cert-name">XERO Advisor Certificate</div>
+      <div class="cert-issuer">Xero</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-year">2025</div>
+      <div class="cert-badge">🔵</div>
+      <div class="cert-name">MYOB Certification</div>
+      <div class="cert-issuer">MYOB</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-year">2026</div>
+      <div class="cert-badge">💚</div>
+      <div class="cert-name">QuickBooks Certification</div>
+      <div class="cert-issuer">Intuit QuickBooks</div>
+    </div>
+    <div class="cert-card active reveal">
+      <div class="cert-year">ONGOING</div>
+      <div class="cert-badge">🏆</div>
+      <div class="cert-name">Certified Financial Planner (CFP) — Level 1 Cleared</div>
+      <div class="cert-issuer">Financial Planning Standards Board</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-year">JAN 2023</div>
+      <div class="cert-badge">📊</div>
+      <div class="cert-name">Financial Modeling & Valuation Analyst (FMVA)</div>
+      <div class="cert-issuer">Corporate Finance Institute</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-year">JAN 2023</div>
+      <div class="cert-badge">💰</div>
+      <div class="cert-name">Financial Planning & Wealth Management</div>
+      <div class="cert-issuer">Corporate Finance Institute</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-year">DEC 2021</div>
+      <div class="cert-badge">📈</div>
+      <div class="cert-name">Investment Analysis & Portfolio Management</div>
+      <div class="cert-issuer">NSEIT Limited</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-year">DEC 2021</div>
+      <div class="cert-badge">🎯</div>
+      <div class="cert-name">Investment Analysis & Portfolio Management</div>
+      <div class="cert-issuer">FinLadder</div>
+    </div>
+  </div>
+</section>
 
-<div id="work" class="modal">
-<span class="close" onclick="closeModal()">X</span>
-<h2>Detailed Work Experience</h2>
-<p>
-Blackburn Accounting: Prepared BAS, tax returns, payroll and financial reports.  
-Internship: Assisted in reconciliation, payroll, documentation.  
-Coles: Customer service and operations.  
-Easy-Tech: Sales & customer interaction.
-</p>
-</div>
+<!-- Experience -->
+<section id="experience">
+  <div class="section-header reveal">
+    <div class="section-num">04</div>
+    <h2 class="section-title">WORK EXPERIENCE</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">
+        <div class="timeline-date">FEB 2026 – PRESENT</div>
+        <div class="timeline-badge">CURRENT ROLE</div>
+      </div>
+      <div class="timeline-company">BLACKBURN ACCOUNTING</div>
+      <div class="timeline-role">Graduate Accountant</div>
+      <ul class="timeline-points">
+        <li>Maintenance of financial records, data entry, and reconciliations for multiple clients</li>
+        <li>Process invoices, receipts, and payments with full accuracy</li>
+        <li>Prepare monthly financial statements and reports</li>
+        <li>Assist with BAS preparation and client tax returns</li>
+        <li>Attained full proficiency in XERO, MYOB and Excel</li>
+      </ul>
+      <div class="timeline-tags">
+        <span class="tag">XERO</span><span class="tag">MYOB</span><span class="tag">Excel</span><span class="tag">BAS</span><span class="tag">Payroll</span><span class="tag">Tax Returns</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">
+        <div class="timeline-date">JUL 2025 – JAN 2026</div>
+        <div class="timeline-badge">INTERNSHIP</div>
+      </div>
+      <div class="timeline-company">BLACKBURN ACCOUNTING</div>
+      <div class="timeline-role">Payroll & Accounting Intern</div>
+      <ul class="timeline-points">
+        <li>Processed payrolls for multiple clients with accuracy and compliance</li>
+        <li>Assisted in financial record-keeping and documentation</li>
+        <li>Developed hands-on skills in real accounting software environments</li>
+        <li>Built strong foundations in filing, documentation, and record keeping</li>
+      </ul>
+      <div class="timeline-tags">
+        <span class="tag">Payroll</span><span class="tag">Reconciliation</span><span class="tag">Documentation</span><span class="tag">XERO</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot" style="background:var(--blue); box-shadow:0 0 20px rgba(0,212,255,0.5)"></div>
+      <div class="timeline-meta">
+        <div class="timeline-date">MAR 2025 – NOV 2025</div>
+        <div class="timeline-badge" style="color:var(--gold); background:rgba(255,215,0,0.1); border-color:rgba(255,215,0,0.2)">VOLUNTEER</div>
+      </div>
+      <div class="timeline-company">AIESEC</div>
+      <div class="timeline-role">Outgoing Global Volunteer</div>
+      <ul class="timeline-points">
+        <li>Supported students in exchange programmes and global internships</li>
+        <li>Communicated benefits of student exchange to increase participation</li>
+        <li>Managed student accounts applying for exchange</li>
+      </ul>
+      <div class="timeline-tags">
+        <span class="tag">Leadership</span><span class="tag">Student Support</span><span class="tag">Global Programs</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot" style="background:var(--muted); box-shadow:none"></div>
+      <div class="timeline-meta">
+        <div class="timeline-date">MAY 2025 – SEP 2025</div>
+      </div>
+      <div class="timeline-company">COLES</div>
+      <div class="timeline-role">Team Member</div>
+      <ul class="timeline-points">
+        <li>Managed customer queries with effective guidance and service</li>
+        <li>Collaborated across teams for smooth store operations</li>
+        <li>Handled high-volume tasks in a fast-paced environment</li>
+      </ul>
+      <div class="timeline-tags">
+        <span class="tag">Customer Service</span><span class="tag">Teamwork</span><span class="tag">Time Management</span>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot" style="background:var(--muted); box-shadow:none"></div>
+      <div class="timeline-meta">
+        <div class="timeline-date">MAR 2025 – MAY 2025</div>
+      </div>
+      <div class="timeline-company">EASY-TECH</div>
+      <div class="timeline-role">Sales & Customer Representative</div>
+      <ul class="timeline-points">
+        <li>Delivered quality customer service and maximised sales performance</li>
+        <li>Proficient with POS software for sales processing</li>
+        <li>Maintained store presentation to retail standards</li>
+      </ul>
+      <div class="timeline-tags">
+        <span class="tag">Sales</span><span class="tag">POS Systems</span><span class="tag">Retail</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+  <div class="section-header reveal">
+    <div class="section-num">05</div>
+    <h2 class="section-title">UPCOMING PROJECTS</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card reveal" onmousemove="moveGlow(event,this)">
+      <div class="project-num">01</div>
+      <div class="project-glow"></div>
+      <div class="project-status status-progress">
+        <span style="width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block;animation:pulse 1.5s infinite"></span>
+        IN PROGRESS
+      </div>
+      <div class="project-title">AI-BASED FINANCE CHATBOT PLATFORM</div>
+      <p class="project-desc">An intelligent chatbot platform designed to democratise financial advice — giving everyday users access to personalised financial planning, investment insights, and accounting guidance powered by AI.</p>
+      <ul class="project-features">
+        <li>Natural language financial Q&A and planning assistance</li>
+        <li>Integration with accounting data and live financial feeds</li>
+        <li>Personalised investment recommendations based on risk profile</li>
+        <li>Automated report generation and insights dashboard</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">AI / LLM</span>
+        <span class="stack-tag">Finance APIs</span>
+        <span class="stack-tag">Chatbot UX</span>
+        <span class="stack-tag">Data Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onmousemove="moveGlow(event,this)">
+      <div class="project-num">02</div>
+      <div class="project-glow"></div>
+      <div class="project-status status-coming">◆ COMING SOON</div>
+      <div class="project-title">SUSTAINABLE BUSINESS ECO-MODEL INITIATIVE</div>
+      <p class="project-desc">Building on experience from the SRCC Delhi sustainable business program — developing a scalable eco-friendly business model framework designed to solve real-world environmental and financial challenges.</p>
+      <ul class="project-features">
+        <li>ESG-aligned financial modeling and cost-benefit analysis</li>
+        <li>Carbon footprint calculation integrated into P&L reporting</li>
+        <li>Sustainable supply chain financial optimisation</li>
+        <li>Green business grant identification & application toolkit</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">ESG Finance</span>
+        <span class="stack-tag">Excel Modeling</span>
+        <span class="stack-tag">Business Dev</span>
+        <span class="stack-tag">Sustainability</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal" onmousemove="moveGlow(event,this)">
+      <div class="project-num">03</div>
+      <div class="project-glow"></div>
+      <div class="project-status status-coming">◆ COMING SOON</div>
+      <div class="project-title">FINANCE BLOG & CONTENT PLATFORM</div>
+      <p class="project-desc">Expanding the Finance Blogger platform with in-depth articles, investment explainers, and personal finance guides — making complex financial concepts accessible to young Australians and global audiences.</p>
+      <ul class="project-features">
+        <li>Personal finance & investment breakdowns for beginners</li>
+        <li>Accounting tips for small business owners</li>
+        <li>Market commentary with CFP-level analytical depth</li>
+        <li>Interactive financial calculators and tools</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">Content Strategy</span>
+        <span class="stack-tag">Finance Writing</span>
+        <span class="stack-tag">Community</span>
+        <span class="stack-tag">EdTech</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="section-header reveal" style="justify-content:center">
+      <div class="section-num">06</div>
+      <h2 class="section-title">LET'S CONNECT</h2>
+    </div>
+    <p class="reveal" style="color:var(--muted); font-size:15px; line-height:1.8; max-width:480px; margin:0 auto;">Open to graduate accounting roles, internships, and finance collaborations in Australia. Let's build something great together.</p>
+    <div class="contact-email reveal">pandeypratyaksh1106@gmail.com</div>
+    <div class="contact-links reveal">
+      <a class="contact-link" href="mailto:pandeypratyaksh1106@gmail.com">✉ Email Me</a>
+      <a class="contact-link" href="tel:+61489182902">📞 +61 489 182 902</a>
+      <a class="contact-link" href="#">💼 LinkedIn</a>
+    </div>
+    <p class="reveal" style="margin-top:32px; font-family:'Space Mono',monospace; font-size:10px; color:var(--muted); letter-spacing:2px;">📍 4 HACKETT PASS, WINTHROP 6150 · PERTH, WESTERN AUSTRALIA</p>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 <span>PRATYAKSH PANDEY</span> · ALL RIGHTS RESERVED</div>
+  <div>BUILT FOR <span>FINANCE EXCELLENCE</span></div>
+</footer>
 
 <script>
-// CURSOR
-const c=document.querySelector('.cursor');
-const r=document.querySelector('.ring');
+  // Cursor
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+    setTimeout(() => {
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    }, 80);
+  });
 
-document.addEventListener('mousemove',e=>{
-c.style.left=e.clientX+'px';
-c.style.top=e.clientY+'px';
-r.style.left=e.clientX+'px';
-r.style.top=e.clientY+'px';
-});
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
 
-// MODALS
-function openSummary(){
-document.getElementById("summary").style.display="block";
-}
-function openWork(){
-document.getElementById("work").style.display="block";
-}
-function closeModal(){
-document.querySelectorAll('.modal').forEach(m=>m.style.display='none');
-}
+  // Skill bars
+  const barObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-bar').forEach(bar => {
+          bar.style.width = bar.dataset.w;
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.skills-grid').forEach(s => barObs.observe(s));
+
+  // Counters
+  function animateCounter(el, target) {
+    let start = 0;
+    const step = () => {
+      start += Math.ceil(target / 30);
+      if (start >= target) { el.textContent = target; return; }
+      el.textContent = start;
+      requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+  const countObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target, parseInt(entry.target.dataset.target));
+        countObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.counter').forEach(c => countObs.observe(c));
+
+  // Project card glow
+  function moveGlow(e, card) {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width * 100) + '%');
+    card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height * 100) + '%');
+  }
 </script>
-
 </body>
 </html>
