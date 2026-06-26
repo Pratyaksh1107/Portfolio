@@ -472,6 +472,23 @@
   }
   .status-coming { background: rgba(255,215,0,0.1); color: var(--gold); border: 1px solid rgba(255,215,0,0.25); }
   .status-progress { background: rgba(0,255,136,0.1); color: var(--green); border: 1px solid rgba(0,255,136,0.25); }
+  .status-live { background: rgba(0,255,136,0.15); color: var(--green); border: 1px solid rgba(0,255,136,0.5); font-weight: 700; }
+  .status-learning { background: rgba(0,212,255,0.1); color: var(--blue); border: 1px solid rgba(0,212,255,0.3); }
+  .project-card.featured { grid-column: 1 / -1; }
+  .featured-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 900px) { .featured-inner { grid-template-columns: 1fr; } }
+  .featured-stats { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0; }
+  .fstat { flex: 1 1 120px; background: rgba(255,215,0,0.05); border: 1px solid rgba(255,215,0,0.15); padding: 14px; text-align: center; }
+  .fstat strong { display: block; color: var(--gold); font-size: 14px; margin-bottom: 4px; }
+  .fstat span { font-size: 11px; color: var(--muted); }
+  .feat-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .feat-chip { font-size: 11px; font-family: 'Space Mono', monospace; background: rgba(0,255,136,0.06); border: 1px solid rgba(0,255,136,0.2); color: var(--green); padding: 5px 12px; }
+  .spotlight-ribbon { display: inline-block; background: var(--gold); color: var(--dark); font-size: 9px; font-weight: 700; letter-spacing: 2px; padding: 3px 10px; margin-bottom: 10px; }
+  .learning-progress { width: 100%; height: 4px; background: rgba(0,212,255,0.1); border-radius: 2px; overflow: hidden; margin-top: 16px; }
+  .learning-progress-fill { height: 100%; width: 35%; background: linear-gradient(90deg, transparent, var(--blue), transparent); animation: learningSlide 2.2s ease-in-out infinite; }
+  @keyframes learningSlide { 0% { transform: translateX(-100%); } 100% { transform: translateX(400%); } }
+  @keyframes spinLoader { to { transform: rotate(360deg); } }
+  .spin-loader { width: 10px; height: 10px; border: 2px solid rgba(0,212,255,0.3); border-top-color: var(--blue); border-radius: 50%; animation: spinLoader 0.9s linear infinite; display: inline-block; }
   .project-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 28px;
@@ -661,8 +678,8 @@
 <!-- Ticker -->
 <div class="ticker">
   <span class="ticker-inner">
-    &nbsp;&nbsp;&nbsp;XERO ▲ CERTIFIED &nbsp;|&nbsp; MYOB ▲ PROFICIENT &nbsp;|&nbsp; QUICKBOOKS ▲ 2026 &nbsp;|&nbsp; CFP LEVEL 1 ✓ CLEARED &nbsp;|&nbsp; FMVA ✓ CERTIFIED &nbsp;|&nbsp; UWA MASTER'S IN PROGRESS &nbsp;|&nbsp; AI FINANCE CHATBOT ◆ UPCOMING &nbsp;|&nbsp; PAYROLL ACCOUNTING ▲ EXPERIENCED &nbsp;|&nbsp; BAS PREPARATION ✓ SKILLED &nbsp;|&nbsp; FINANCIAL MODELING ▲ TRAINED &nbsp;&nbsp;&nbsp;&nbsp;
-    XERO ▲ CERTIFIED &nbsp;|&nbsp; MYOB ▲ PROFICIENT &nbsp;|&nbsp; QUICKBOOKS ▲ 2026 &nbsp;|&nbsp; CFP LEVEL 1 ✓ CLEARED &nbsp;|&nbsp; FMVA ✓ CERTIFIED &nbsp;|&nbsp; UWA MASTER'S IN PROGRESS &nbsp;|&nbsp; AI FINANCE CHATBOT ◆ UPCOMING &nbsp;|&nbsp; PAYROLL ACCOUNTING ▲ EXPERIENCED &nbsp;|&nbsp; BAS PREPARATION ✓ SKILLED &nbsp;|&nbsp; FINANCIAL MODELING ▲ TRAINED &nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;XERO ▲ CERTIFIED &nbsp;|&nbsp; MYOB ▲ PROFICIENT &nbsp;|&nbsp; QUICKBOOKS ▲ 2026 &nbsp;|&nbsp; CFP LEVEL 1 ✓ CLEARED &nbsp;|&nbsp; FMVA ✓ CERTIFIED &nbsp;|&nbsp; UWA MASTER'S IN PROGRESS &nbsp;|&nbsp; FINANCEAI PLATFORM ✓ LIVE &amp; DEPLOYED &nbsp;|&nbsp; PAYROLL ACCOUNTING ▲ EXPERIENCED &nbsp;|&nbsp; BAS PREPARATION ✓ SKILLED &nbsp;|&nbsp; FINANCIAL MODELING ▲ TRAINED &nbsp;&nbsp;&nbsp;&nbsp;
+    XERO ▲ CERTIFIED &nbsp;|&nbsp; MYOB ▲ PROFICIENT &nbsp;|&nbsp; QUICKBOOKS ▲ 2026 &nbsp;|&nbsp; CFP LEVEL 1 ✓ CLEARED &nbsp;|&nbsp; FMVA ✓ CERTIFIED &nbsp;|&nbsp; UWA MASTER'S IN PROGRESS &nbsp;|&nbsp; FINANCEAI PLATFORM ✓ LIVE &amp; DEPLOYED &nbsp;|&nbsp; PAYROLL ACCOUNTING ▲ EXPERIENCED &nbsp;|&nbsp; BAS PREPARATION ✓ SKILLED &nbsp;|&nbsp; FINANCIAL MODELING ▲ TRAINED &nbsp;&nbsp;
   </span>
 </div>
 
@@ -801,6 +818,21 @@
       <div class="skill-icon">🤖</div>
       <div class="skill-name">AI in Finance (Building)</div>
       <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="70%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🐍</div>
+      <div class="skill-name">Python</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="88%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">⚗️</div>
+      <div class="skill-name">Flask / Web Backend</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="85%"></div></div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-icon">🤖</div>
+      <div class="skill-name">GPT-4o / OpenAI API</div>
+      <div class="skill-bar-wrap"><div class="skill-bar" style="width:0%" data-w="82%"></div></div>
     </div>
   </div>
 </section>
@@ -1001,31 +1033,62 @@
 <section id="projects">
   <div class="section-header reveal">
     <div class="section-num">05</div>
-    <h2 class="section-title">UPCOMING PROJECTS</h2>
+    <h2 class="section-title">PROJECTS</h2>
     <div class="section-line"></div>
   </div>
   <div class="projects-grid">
 
-    <div class="project-card reveal" onmousemove="moveGlow(event,this)">
+    <div class="project-card featured reveal" onmousemove="moveGlow(event,this)">
       <div class="project-num">01</div>
       <div class="project-glow"></div>
-      <div class="project-status status-progress">
+      <div class="project-status status-live">
         <span style="width:6px;height:6px;background:var(--green);border-radius:50%;display:inline-block;animation:pulse 1.5s infinite"></span>
-        IN PROGRESS
+        LIVE &amp; DEPLOYED
       </div>
-      <div class="project-title">AI-BASED FINANCE CHATBOT PLATFORM</div>
-      <p class="project-desc">An intelligent chatbot platform designed to democratise financial advice — giving everyday users access to personalised financial planning, investment insights, and accounting guidance powered by AI.</p>
-      <ul class="project-features">
-        <li>Natural language financial Q&A and planning assistance</li>
-        <li>Integration with accounting data and live financial feeds</li>
-        <li>Personalised investment recommendations based on risk profile</li>
-        <li>Automated report generation and insights dashboard</li>
-      </ul>
-      <div class="project-stack">
-        <span class="stack-tag">AI / LLM</span>
-        <span class="stack-tag">Finance APIs</span>
-        <span class="stack-tag">Chatbot UX</span>
-        <span class="stack-tag">Data Analysis</span>
+      <div class="project-title" style="font-size:clamp(22px,3.5vw,40px)">FINANCEAI — FULL-STACK AI FINANCE PLATFORM</div>
+      <div class="featured-inner">
+        <div>
+          <p class="project-desc">A production-grade AI finance platform serving real users on a custom domain. Built end-to-end with Python, Flask and GPT-4o — featuring an AI advisor, document analyser, budget tracker, financial calculators, an AI course builder, a cinema section, and a personalised notes system. Fully accessible, mobile-responsive, and deployed with CI/CD via GitHub.</p>
+          <div class="featured-stats">
+            <div class="fstat"><strong>Real Users</strong><span>Live in production</span></div>
+            <div class="fstat"><strong>Custom Domain</strong><span>Self-deployed</span></div>
+            <div class="fstat"><strong>6–8hr Courses</strong><span>AI-generated</span></div>
+            <div class="fstat"><strong>CI/CD</strong><span>GitHub continuous deploy</span></div>
+          </div>
+          <div class="project-stack" style="margin-top:8px">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Flask</span>
+            <span class="stack-tag">GPT-4o</span>
+            <span class="stack-tag">OpenAI Streaming</span>
+            <span class="stack-tag">Web Speech API</span>
+            <span class="stack-tag">Notification API</span>
+            <span class="stack-tag">Dynamic Excel</span>
+          </div>
+        </div>
+        <div>
+          <ul class="project-features">
+            <li>AI Advisor — GPT-4o powered financial guidance with streaming responses</li>
+            <li>Document Analyser — upload and instantly analyse financial documents</li>
+            <li>Budget Tracker — track spending and manage personal finances</li>
+            <li>Financial Calculators — suite of interactive finance tools</li>
+            <li>Cinema Section — AI-generated finance films for visual learning</li>
+            <li>Personalised Notes — session-isolated notes for every user</li>
+            <li>Daily API rate limiting for cost control and sustainability</li>
+            <li>Screen reader support, text-to-speech, and high contrast mode</li>
+            <li>Dark / light mode — no frontend framework used, built from scratch</li>
+          </ul>
+          <div style="margin-top:20px">
+            <div class="spotlight-ribbon">SPOTLIGHT FEATURE</div>
+            <div style="font-weight:700;color:#fff;font-size:15px;margin-bottom:6px">🎓 Fin Tutor — AI Course Builder</div>
+            <div style="font-size:13px;color:#a0a0b0;line-height:1.7">Generates personalised 6–8 hour finance courses on any topic, complete with structured lessons, downloadable Excel projects, a built-in help chatbot, and a certificate of completion.</div>
+            <div class="feat-chips">
+              <span class="feat-chip">Course Generator</span>
+              <span class="feat-chip">Excel Projects</span>
+              <span class="feat-chip">Help Chatbot</span>
+              <span class="feat-chip">Certificate</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1067,6 +1130,30 @@
         <span class="stack-tag">Community</span>
         <span class="stack-tag">EdTech</span>
       </div>
+    </div>
+
+    <div class="project-card reveal" onmousemove="moveGlow(event,this)">
+      <div class="project-num">04</div>
+      <div class="project-glow"></div>
+      <div class="project-status status-learning">
+        <span class="spin-loader"></span>
+        CURRENTLY LEARNING
+      </div>
+      <div class="project-title">C++ FOR QUANTITATIVE FINANCE</div>
+      <p class="project-desc">Actively learning C++ with a focus on quantitative and high-performance finance — building toward low-latency pricing engines, financial modelling, and algorithmic applications in professional trading environments.</p>
+      <ul class="project-features">
+        <li>Memory management and performance-critical systems</li>
+        <li>Quantitative pricing models and financial maths in C++</li>
+        <li>Low-latency architecture for algorithmic trading</li>
+        <li>Object-oriented design for financial instruments</li>
+      </ul>
+      <div class="project-stack">
+        <span class="stack-tag">C++</span>
+        <span class="stack-tag">Quant Finance</span>
+        <span class="stack-tag">Algo Trading</span>
+        <span class="stack-tag">Low Latency</span>
+      </div>
+      <div class="learning-progress"><div class="learning-progress-fill"></div></div>
     </div>
 
   </div>
